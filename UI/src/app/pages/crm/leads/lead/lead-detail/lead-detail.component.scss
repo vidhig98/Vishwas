@@ -1,0 +1,15 @@
+.lead-detail {
+  &__name,
+  &__property {
+    font-weight: 500;
+    // color: #7a8fb7;
+    // color: #b0c4d8;
+    color: #7d98ba;
+  }
+
+  &__designation,
+  &__value {
+    font-size: 14px;
+    color: #bd84a4;
+  }
+}

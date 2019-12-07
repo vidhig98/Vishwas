@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="h5 my-4">Lead Detail</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img
+              class="img-fluid"
+              src="{{ lead?.avatar }}"
+              alt="{{ lead?.company_name }}"
+            />
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-12 lead-detail__name">
+                {{ lead?.company_name }}
+              </div>
+              <!-- <div class="col-12 lead-detail__designation">
+                  {{ lead?.designation }}
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 lead-detail__property">
+            Contact Person
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.contact_person }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 lead-detail__property">
+            Added On
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.createdAt | date: "longDate" }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 lead-detail__property">
+            Phone Number
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.phone }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 lead-detail__property">
+            Website
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.website }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 lead-detail__property">
+            Email
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 lead-detail__property">
+            Order
+          </div>
+          <div class="col-12 lead-detail__value">
+            {{ lead?.order }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center my-5">
+      <div class="col-4 col-sm-2">
+        <a routerLink="edit"><button class="c-btn px-4">Edit</button></a>
+      </div>
+      <!-- <div class="col-4 col-sm-2">
+          <a routerLink="attendance"
+            ><button class="c-btn px-4">Attendance</button></a
+          >
+        </div> -->
+    </div>
+  </div>
+</div>
+<div class="container mb-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 comments">
+      <div class="container mb-2 comment" *ngFor="let comment of comments">
+        <app-lead-comment [comment]="comment"></app-lead-comment>
+      </div>
+    </div>
+    <div class="col-9 col-sm-10 col-lg-11">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your Comment"
+        [(ngModel)]="commentText"
+        required
+      />
+    </div>
+    <div class="col-3 col-sm-2 col-lg-1">
+      <button class="c-btn" (click)="postComment()">Post</button>
+    </div>
+  </div>
+</div>

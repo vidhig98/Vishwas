@@ -1,0 +1,146 @@
+<nav class="navbar navbar-expand-sm">
+  <div class="navbar-brand">
+    <a routerLink="/home">
+      <img
+        class="navbar-logo"
+        src="../../../assets/img/logo-1.png"
+        alt="Suparbiz Logo"
+      />
+    </a>
+  </div>
+  <div class="d-flex align-items-center">
+    <div
+      class="d-inline d-sm-none account-menu__toggle"
+      (click)="toggleAccountMenu()"
+    >
+      <img
+        class="px-2"
+        src="https://ui-avatars.com/api/?name={{ currentUserFirstName }}+{{
+          currentUserLastName
+        }}&rounded=true&size=32"
+        alt=""
+      />
+      <div
+        class="py-2 d-flex flex-column account-menu__pane"
+        *ngIf="showAccountMenu"
+      >
+        <div class="px-3 py-1 account-menu__link">
+          <a routerLink="">Profile</a>
+        </div>
+        <div class="px-3 py-1 account-menu__link">
+          <a routerLink="">Account Setting</a>
+        </div>
+        <div class="px-3 py-1 account-menu__link" (click)="logout()">
+          Logout
+        </div>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon ion ion-md-menu menu-icon"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+      >
+        <a routerLink="/home" class="nav-link">Home</a>
+      </div>
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+        *ngIf="currentUserRole == 'admin'"
+      >
+        <a routerLink="/employee" class="nav-link">Employees</a>
+      </div>
+      <div 
+      class="nav-item text-center" 
+      data-toggle="collapse" 
+      data-target=".navbar-collapse.show"
+        *ngIf="currentUserRole == 'admin'"
+        >
+        <a routerLink="/inventory" class="nav-link">Inventory</a>
+      </div>
+      <div class="nav-item text-center" data-toggle="collapse" data-target=".navbar-collapse.show"
+        *ngIf="currentUserRole == 'admin'">
+        <a routerLink="/production" class="nav-link">Production</a>
+      </div>
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+      >
+        <a
+          routerLink="{{
+            currentUserRole == 'admin'
+              ? '/attendance'
+              : '/employee/' + currentUserId + '/attendance'
+          }}"
+          class="nav-link"
+          >Attendance</a
+        >
+      </div>
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+      >
+        <a routerLink="/task" class="nav-link">Task</a>
+      </div>
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+        *ngIf="currentUserRole == 'admin'"
+      >
+        <a routerLink="/crm" class="nav-link">CRM</a>
+      </div>
+      <div
+        class="nav-item text-center"
+        data-toggle="collapse"
+        data-target=".navbar-collapse.show"
+        *ngIf="currentUserRole == 'admin'"
+      >
+        <a routerLink="/recruitment" class="nav-link">Recruitment</a>
+      </div>
+      <div
+        class="nav-item text-center d-none d-sm-flex align-items-center justify-content-center account-menu__toggle"
+        (click)="toggleAccountMenu()"
+      >
+        <img
+          class="px-2"
+          src="https://ui-avatars.com/api/?name={{ currentUserFirstName }}+{{
+            currentUserLastName
+          }}&rounded=true&size=32"
+          alt=""
+        />
+        <div
+          class="py-2 d-flex flex-column account-menu__pane"
+          *ngIf="showAccountMenu"
+        >
+          <div class="px-3 py-1 account-menu__link">
+            <a routerLink="{{ '/employee/' + currentUserId }}">Profile</a>
+          </div>
+          <div class="px-3 py-1 account-menu__link">
+            <a routerLink="">Account Setting</a>
+          </div>
+          <div class="px-3 py-1 account-menu__link" (click)="logout()">
+            Logout
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+</nav>
+<div class="separator"></div>

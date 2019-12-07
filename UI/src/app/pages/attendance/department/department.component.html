@@ -1,0 +1,13 @@
+<div class="h6 mb-4">{{ name | titlecase }}</div>
+<div class="row">
+  <div class="col-12" *ngFor="let employee of employees">
+    <app-attendee
+      [employee]="employee"
+      *ngIf="used_for === 'mark-attendance'"
+    ></app-attendee>
+    <app-attendee-stats
+      [employee]="employee"
+      *ngIf="used_for === 'company-sheet'"
+    ></app-attendee-stats>
+  </div>
+</div>

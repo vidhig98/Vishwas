@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="h5 my-4">Add Item</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form [formGroup]="addPositionForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Item Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              formControlName="item_name"
+            />
+            <val-errors controlName="item_name">
+              <ng-template valError="required"
+                >Item Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Party Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              formControlName="party_name"
+            />
+            <val-errors controlName="party_name">
+              <ng-template valError="required"
+                >Party Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">UIN</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              formControlName="UIN"
+            />
+            <val-errors controlName="UIN">
+              <ng-template valError="required">UIN is required.</ng-template>
+              <ng-template valError="number"
+                >UIN should be a number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Width</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder=""
+              formControlName="width"
+            />
+            <val-errors controlName="width">
+              <ng-template valError="required"
+                >Width is required.</ng-template
+              >
+              <ng-template valError="number"
+                >Width should be a number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Length</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              formControlName="length"
+            />
+            <val-errors controlName="length">
+              <ng-template valError="required"
+                >Length is required.</ng-template
+              >
+              <ng-template valError="number"
+                >Length should be a number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">GSM</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder=""
+              formControlName="GSM"
+            />
+            <val-errors controlName="GSM">
+              <ng-template valError="required"
+                >GSM is required.</ng-template
+              >
+              <ng-template valError="number"
+                >GSM should be a number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Sq mtr</label>
+            <input type="number" class="form-control" placeholder="" formControlName="sq_mtr" />
+            <val-errors controlName="sq_mtr">
+              <ng-template valError="required">Sq mtr is required.</ng-template>
+              <ng-template valError="number">Sq mtr should be a number.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Weight</label>
+            <input type="number" class="form-control" placeholder="" formControlName="weight" />
+            <val-errors controlName="weight">
+              <ng-template valError="required">Weight is required.</ng-template>
+              <ng-template valError="number">Weight should be a number.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Impression</label>
+            <input type="text" class="form-control" placeholder="" formControlName="impression" />
+            <val-errors controlName="impression">
+              <ng-template valError="required">Impression is required.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <button class="c-btn">Add Item</button>
+            <p class="msg">{{ msg }}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

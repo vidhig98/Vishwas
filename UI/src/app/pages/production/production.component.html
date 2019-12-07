@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="h5 my-4">Production</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 mb-4" *ngFor="let position of positions">
+        <app-position [position]="position" [id]="position._id"></app-position>
+      </div>
+      <div class="col-sm-6 col-md-2 mb-4">
+        <a routerLink="add"
+          ><app-add-btn content="Add Production"></app-add-btn
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="row mb-3 attendee">
+  <div class="col-2">
+    <img
+      class="img-fluid attendee__avatar"
+      src="{{ employee.avatar }}"
+      alt=""
+    />
+  </div>
+  <div class="col-10 pl-0">
+    <div class="attendee__name mb-2">
+      {{ employee.first_name }} {{ employee.last_name }}
+    </div>
+    <div class="row">
+      <div class="col-6 col-lg-4 col-xl-3 mb-2">
+        <div
+          class="attendee__attendance"
+          [ngClass]="{
+            'attendee__attendance--present': present.checked == true
+          }"
+          (click)="onSelectAttendance(present)"
+        >
+          <input
+            type="radio"
+            value="present"
+            hidden
+            name="{{ employee._id }}"
+            #present
+          />
+          Present
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-3 mb-2">
+        <div
+          class="attendee__attendance"
+          [ngClass]="{
+            'attendee__attendance--absent': absent.checked == true
+          }"
+          (click)="onSelectAttendance(absent)"
+        >
+          <input
+            type="radio"
+            value="absent"
+            hidden
+            checked
+            name="{{ employee._id }}"
+            #absent
+          />
+          Absent
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-3 mb-2">
+        <div
+          class="attendee__attendance"
+          [ngClass]="{
+            'attendee__attendance--halfday': halfday.checked == true
+          }"
+          (click)="onSelectAttendance(halfday)"
+        >
+          <input
+            type="radio"
+            value="halfday"
+            hidden
+            name="{{ employee._id }}"
+            #halfday
+          />
+          Halfday
+        </div>
+      </div>
+      <div class="col-6 col-lg-4 col-xl-3 mb-2" [hidden]="!present.checked">
+        <div
+          class="attendee__overtime"
+          [ngClass]="{
+            'attendee__attendance--halfday': halfday.checked == true
+          }"
+        >
+          <input
+            type="text"
+            placeholder="Overtime"
+            name="{{ employee._id }}-overtime"
+            [(ngModel)]="overtime"
+            (blur)="onOvertime()"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

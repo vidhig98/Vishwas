@@ -1,0 +1,12 @@
+<div class="container-fluid d-flex align-items-center p-4 menu">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+      <div
+        class="col-sm-6 col-md-6 col-lg-2 p-2 p-sm-2 px-sm-3"
+        *ngFor="let menuItem of menuItems"
+      >
+        <app-badged-menu-item [menu_item]="menuItem"></app-badged-menu-item>
+      </div>
+    </div>
+  </div>
+</div>

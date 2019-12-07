@@ -1,0 +1,59 @@
+<div
+  class="container-fluid d-flex justify-content-center align-items-center login-container"
+>
+  <div class="login-bg"></div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-12 mb-2">
+        <div class="input-group login-form-group">
+          <div class="input-group-prepend login-input-prepend">
+            <div
+              class="input-group-text justify-content-center align-items-center login-input-prepend-text"
+            >
+              <img src="../../../assets/img/icons/user.svg" alt="Username" />
+            </div>
+          </div>
+          <input
+            class="form-control login-input"
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+          />
+        </div>
+        <val-errors class="mt-2" controlName="username">
+          <ng-template valError="required">Username is required.</ng-template>
+        </val-errors>
+      </div>
+      <div class="col-12 mb-2">
+        <div class="input-group login-form-group">
+          <div class="input-group-prepend login-input-prepend">
+            <div
+              class="input-group-text justify-content-center align-items-center login-input-prepend-text"
+            >
+              <img src="../../../assets/img/icons/locked.svg" alt="Password" />
+            </div>
+          </div>
+          <input
+            class="form-control login-input"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <val-errors class="mt-2" controlName="password">
+          <ng-template valError="required">Password is required.</ng-template>
+        </val-errors>
+      </div>
+      <div class="col-12 mb-2">
+        <button class="btn btn-block btn-light login-btn">Login</button>
+        <div class="mt-2 msg">{{ msg }}</div>
+      </div>
+      <div class="col-12 mb-2 form-inline justify-content-end">
+        <a href="#" class="login-text-muted">Forgot Password?</a>
+      </div>
+      <div class="col-12 mb-2 form-inline justify-content-center">
+        <a href="#" class="h6">Sign Up</a>
+      </div>
+    </div>
+  </form>
+</div>

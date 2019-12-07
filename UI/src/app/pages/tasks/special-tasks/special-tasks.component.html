@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="h5 mt-4">Special Tasks</div>
+  <div class="mb-4 task__date">{{ today | date: "fullDate" }}</div>
+  <div class="container-fluid p-0">
+    <div class="row mb-4">
+      <ng-container *ngIf="tasks.length > 0; else empty">
+        <div class="col-12 mb-2" *ngFor="let task of tasks">
+          <app-task [task]="task"></app-task>
+        </div>
+      </ng-container>
+      <ng-template #empty>
+        <div class="col-12">
+          <div class="display-4">
+            No Special Tasks Available.
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <a routerLink="add"><button class="c-btn">Add Task</button></a>
+      </div>
+    </div>
+  </div>
+</div>

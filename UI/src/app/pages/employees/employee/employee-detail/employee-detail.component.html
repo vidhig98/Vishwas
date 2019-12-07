@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="h5 my-4">Employee Detail</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img
+              class="img-fluid"
+              src="{{ employee?.avatar }}"
+              alt="{{ employee?.first_name }} {{ employee?.last_name }}"
+            />
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-12 employee-detail__name">
+                {{ employee?.first_name }} {{ employee?.last_name }}
+              </div>
+              <div class="col-12 employee-detail__designation">
+                {{ employee?.designation }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 employee-detail__property">
+            Gender
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.gender }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 employee-detail__property">
+            Date of Birth
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.dob | date: "longDate" }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 employee-detail__property">
+            Department
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.department }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 employee-detail__property">
+            Phone Number
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.phone }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 employee-detail__property">
+            Work Email
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.work_email }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 employee-detail__property">
+            Personal Email
+          </div>
+          <div class="col-12 employee-detail__value">
+            {{ employee?.personal_email }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center my-5">
+      <div class="col-4 col-sm-2">
+        <a routerLink="edit"><button class="c-btn px-4">Edit</button></a>
+      </div>
+      <div class="col-4 col-sm-2">
+        <a routerLink="attendance"
+          ><button class="c-btn px-4">Attendance</button></a
+        >
+      </div>
+    </div>
+  </div>
+</div>

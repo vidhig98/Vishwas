@@ -1,0 +1,24 @@
+<div class="row mb-3 attendee">
+  <div class="col-2">
+    <img
+      class="img-fluid attendee__avatar"
+      src="{{ employee.avatar }}"
+      alt=""
+    />
+  </div>
+  <div class="col-10 pl-0">
+    <div class="attendee__name mb-2">
+      {{ employee.first_name }} {{ employee.last_name }}
+    </div>
+    <div class="row attendee__stats">
+      <div class="col">
+        Present:
+        <span class="attendee__present">{{ presentCount }}</span>
+      </div>
+      <div class="col">
+        Absent:
+        <span class="attendee__absent">{{ absentCount }}</span>
+      </div>
+    </div>
+  </div>
+</div>

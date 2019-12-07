@@ -1,0 +1,24 @@
+<a routerLink="{{ id }}"
+  ><div class="row lead">
+    <div class="col-3">
+      <img
+        class="img-fluid"
+        [src]="lead.avatar"
+        alt="{{ lead.company_name }}"
+      />
+    </div>
+    <div class="col-9 pl-0">
+      <div class="row">
+        <div class="col-12 col-md-8 pr-0">
+          <div class="lead__name">{{ lead.company_name }}</div>
+          <div class="lead__location">{{ lead.contact_person }}</div>
+        </div>
+        <div class="col-2 lead__action">
+          <img src="../../../../../assets/img/icons/phone.svg" alt="Call" />
+        </div>
+        <div class="col-2 lead__action">
+          <img src="../../../../../assets/img/icons/info.svg" alt="More Info" />
+        </div>
+      </div>
+    </div></div
+></a>

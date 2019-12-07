@@ -1,0 +1,189 @@
+<div class="container">
+  <div class="h5 my-4">Add Task</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Task Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Eg: Mark the attendance."
+              formControlName="name"
+            />
+            <val-errors controlName="name">
+              <ng-template valError="required"
+                >Task Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group" *ngIf="taskType == 'routine'">
+            <label for="">Task Type</label>
+            <select
+              class="form-control"
+              formControlName="frequency"
+              (change)="onTaskTypeChange(freq)"
+              #freq
+            >
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+            <val-errors controlName="frequency">
+              <ng-template valError="required"
+                >Task Type is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group" *ngIf="showWeekdays">
+            <label class="d-block">Weekday</label>
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="monday"
+                formControlName="weekday"
+              />Monday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="tuesday"
+                formControlName="weekday"
+              />Tuesday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="wednesday"
+                formControlName="weekday"
+              />Wednesday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="thursday"
+                formControlName="weekday"
+              />Thursday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="friday"
+                formControlName="weekday"
+              />Friday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="saturday"
+                formControlName="weekday"
+              />Saturday</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="sunday"
+                formControlName="weekday"
+              />Sunday</label
+            >
+          </div>
+          <div class="form-group" *ngIf="showDueBy && taskType == 'routine'">
+            <label class="d-block" for="">Due By</label>
+            <input
+              type="number"
+              class="form-control due-date"
+              min="1"
+              max="31"
+              oninput="javascript: if (this.value.length > 2) this.value = this.value.slice(0, 2);"
+              formControlName="due_by"
+            />
+            <label class="d-inline"> of every Month.</label>
+            <val-errors controlName="due_by">
+              <ng-template valError="required"
+                >Due Date is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group" *ngIf="taskType == 'special'">
+            <label for="">Due Date</label>
+            <input
+              type="date"
+              class="form-control"
+              formControlName="due_date"
+            />
+            <val-errors controlName="due_date">
+              <ng-template valError="required"
+                >Due Date is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label class="d-block">Assigned To</label>
+            <select
+              class="form-control"
+              formControlName="assigned_to_type"
+              (change)="onAssignedToChange(assigned_to)"
+              #assigned_to
+            >
+              <option value="self">Self</option>
+              <option value="all">All</option>
+              <option value="some">Some</option>
+            </select>
+          </div>
+          <div
+            class="form-group employee-search-box"
+            *ngIf="showEmployeeSearchBox"
+          >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Employee Name"
+              (input)="onEmployeeSearchBoxChange()"
+              #employee_search_box
+            />
+            <div
+              class="mt-1 py-2 employee-search-box__results"
+              *ngIf="showEmployeeSearchBoxResults"
+            >
+              <div
+                class="px-2 py-2 employee-search-box__result"
+                *ngFor="let employee of employeeSearchBoxResults"
+                (click)="onEmployeeSearchBoxResultClick(employee)"
+              >
+                <div class="mb-1 employee-search-box__result__name">
+                  {{ employee.first_name }} {{ employee.last_name }}
+                </div>
+                <div class="employee-search-box__result__department">
+                  {{ employee.department | titlecase }}
+                </div>
+              </div>
+            </div>
+            <val-errors controlName="assigned_to_type">
+              <ng-template valError="required"
+                >Assigned To is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group selected-employees">
+            <div
+              class="p-2 mb-1 selected-employee"
+              *ngFor="let employee of selectedEmployees"
+            >
+              <div class="mb-1 selected-employee__name">
+                {{ employee.first_name }} {{ employee.last_name }}
+              </div>
+              <div class="selected-employee__department">
+                {{ employee.department | titlecase }}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="c-btn">Add Task</button>
+            <p class="msg">{{ msg }}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

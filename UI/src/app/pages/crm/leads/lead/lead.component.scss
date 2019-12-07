@@ -1,0 +1,21 @@
+.lead {
+  // border: 1px solid #e0e0e0;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__location {
+    font-size: 14px;
+  }
+
+  &__action {
+    img {
+      width: 20px;
+    }
+  }
+}

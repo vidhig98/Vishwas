@@ -1,0 +1,20 @@
+<div class="row employee">
+  <div class="col-4">
+    <img
+      class="img-fluid"
+      [src]="employee.avatar"
+      alt="{{ employee.first_name }} {{ employee.last_name }}"
+    />
+  </div>
+  <div class="col-8 pl-0">
+    <div class="employee__name">
+      {{ employee.first_name }} {{ employee.last_name }}
+    </div>
+    <div class="mb-3 employee__designation">{{ employee.designation }}</div>
+    <a routerLink="{{ id }}">
+      <button class="c-btn px-3">
+        Details
+      </button>
+    </a>
+  </div>
+</div>

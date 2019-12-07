@@ -1,0 +1,54 @@
+<div
+  class="row py-2 task"
+  [ngClass]="{ 'task--editable': editable }"
+  *ngIf="visible"
+>
+  <div class="col-8 col-sm-9 col-lg-10 task__details">
+    <div class="mb-0" [contentEditable]="editable" #taskText>
+      {{ task.name }}
+    </div>
+  </div>
+  <div class="col-4 col-sm-3 col-lg-2 task__actions">
+    <div class="task__action" *ngIf="!editable">
+      <i class="icon ion-md-checkmark" title="Done"></i>
+    </div>
+    <div class="task__action" (click)="toggleComments()" *ngIf="!editable">
+      <i class="icon ion-md-undo" title="Toggle Comments"></i>
+    </div>
+    <div class="task__action" *ngIf="owner" (click)="toggleEditableMode()">
+      <i
+        class="icon ion-md-checkmark"
+        title="Done Editing"
+        *ngIf="editable; else done"
+      ></i>
+      <ng-template #done>
+        <i class="icon ion-md-create" title="Edit Task"></i>
+      </ng-template>
+    </div>
+    <div class="task__action" *ngIf="!editable && owner" (click)="deleteTask()">
+      <i class="icon ion-md-trash" title="Delete Task"></i>
+    </div>
+  </div>
+  <div class="col-12" *ngIf="showComments">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 comments">
+        <div class="container mb-2 comment" *ngFor="let comment of comments">
+          <app-task-comment [comment]="comment"></app-task-comment>
+        </div>
+      </div>
+      <div class="col-9 col-sm-10 col-lg-11">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter your Comment"
+          [(ngModel)]="commentText"
+          required
+        />
+      </div>
+      <div class="col-3 col-sm-2 col-lg-1">
+        <button class="c-btn" (click)="postComment()">Post</button>
+      </div>
+    </div>
+    <p class="msg"></p>
+  </div>
+</div>

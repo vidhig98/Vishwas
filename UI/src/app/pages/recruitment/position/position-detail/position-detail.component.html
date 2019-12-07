@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="h5 my-4">Position Detail</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img
+              class="img-fluid"
+              src="{{ position?.avatar }}"
+              alt="{{ position?.profile }}"
+            />
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-12 position-detail__name">
+                {{ position?.profile }}
+              </div>
+              <!-- <div class="col-12 position-detail__designation">
+                        {{ position?.designation }}
+                      </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 position-detail__property">
+            Department
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.department }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 position-detail__property">
+            Added On
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.createdAt | date: "longDate" }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 position-detail__property">
+            Salary
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.salary }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 position-detail__property">
+            Qualification
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.qualification }}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3 mb-4 mb-md-0">
+        <div class="row mb-4">
+          <div class="col-12 position-detail__property">
+            Experience
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.experience }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 position-detail__property">
+            Openings
+          </div>
+          <div class="col-12 position-detail__value">
+            {{ position?.openings }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center my-5">
+      <div class="col-4 col-sm-2">
+        <a routerLink="edit"><button class="c-btn px-4">Edit</button></a>
+      </div>
+      <!-- <div class="col-4 col-sm-2">
+                <a routerLink="attendance"
+                  ><button class="c-btn px-4">Attendance</button></a
+                >
+              </div> -->
+    </div>
+  </div>
+</div>

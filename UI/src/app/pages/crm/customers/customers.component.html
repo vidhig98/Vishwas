@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="h5 my-4">Customers</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 mb-4" *ngFor="let customer of customers">
+        <app-customer [customer]="customer" [id]="customer._id"></app-customer>
+      </div>
+      <div class="col-sm-6 col-md-2 mb-4">
+        <a routerLink="add"
+          ><app-add-btn content="Add Customers"></app-add-btn
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>

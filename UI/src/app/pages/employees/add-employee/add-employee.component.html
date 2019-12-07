@@ -1,0 +1,157 @@
+<div class="container">
+  <div class="h5 my-4">Add Employee</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="John"
+              formControlName="first_name"
+            />
+            <val-errors controlName="first_name">
+              <ng-template valError="required"
+                >First Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Doe"
+              formControlName="last_name"
+            />
+            <val-errors controlName="last_name">
+              <ng-template valError="required"
+                >Last Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label class="d-block">Gender</label>
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="male"
+                formControlName="gender"
+              />Male</label
+            >
+            <label class="d-block"
+              ><input
+                type="radio"
+                value="female"
+                formControlName="gender"
+              />Female</label
+            >
+          </div>
+          <div class="form-group">
+            <label for="">Department</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Human Resources"
+              formControlName="department"
+            />
+            <val-errors controlName="department">
+              <ng-template valError="required"
+                >Department is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Designation</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Developer"
+              formControlName="designation"
+            />
+            <val-errors controlName="designation">
+              <ng-template valError="required"
+                >Designation is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Date of Birth</label>
+            <input type="date" class="form-control" formControlName="dob" />
+            <val-errors controlName="dob">
+              <ng-template valError="required"
+                >Date of Birth is required.</ng-template
+              >
+              <ng-template valError="date"
+                >Date of Birth should be a valid date.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              minlength="10"
+              maxlength="10"
+              size="11"
+              pattern="\d*"
+              placeholder="123 456 7890"
+              formControlName="phone"
+            />
+            <val-errors controlName="phone">
+              <ng-template valError="required"
+                >Phone Number is required.</ng-template
+              >
+              <ng-template valError="number"
+                >Phone Number cannot contain alphabets and special
+                characters.</ng-template
+              >
+              <ng-template valError="minlength"
+                >Invalid Phone Number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Email ID</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@personalemail.com"
+              formControlName="personal_email"
+            />
+            <val-errors controlName="personal_email">
+              <ng-template valError="required"
+                >Email ID is required.</ng-template
+              >
+              <ng-template valError="email">Invalid Email ID.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Employee ID</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="your@workemail.com"
+              formControlName="work_email"
+            />
+            <val-errors controlName="work_email">
+              <ng-template valError="required"
+                >Email ID is required.</ng-template
+              >
+              <ng-template valError="email">Invalid Email ID.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="c-btn">
+              {{ editMode ? "Update Employee" : "Add Employee" }}
+            </button>
+          </div>
+          <p class="msg">{{ msg }}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

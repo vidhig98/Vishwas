@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="h5 my-4">Add Lead</div>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form [formGroup]="addLeadForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="">Company Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Example Inc."
+              formControlName="company_name"
+            />
+            <val-errors controlName="company_name">
+              <ng-template valError="required"
+                >Company Name is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Contact Person</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="John Doe"
+              formControlName="contact_person"
+            />
+            <val-errors controlName="contact_person">
+              <ng-template valError="required"
+                >Contact Person is required.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              placeholder="123 456 7890"
+              size="11"
+              formControlName="phone"
+            />
+            <val-errors controlName="phone">
+              <ng-template valError="required"
+                >Phone Number is required.</ng-template
+              >
+              <ng-template valError="number"
+                >Phone Number cannot contain alphabets and special
+                characters.</ng-template
+              >
+              <ng-template valError="minlength"
+                >Invalid Phone Number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Email ID</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="johndoe@example.com"
+              formControlName="email"
+            />
+            <val-errors controlName="email">
+              <ng-template valError="required"
+                >Email ID is required.</ng-template
+              >
+              <ng-template valError="email">Invalid Email ID.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Website</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="http://www.example.com"
+              formControlName="website"
+            />
+            <val-errors controlName="website">
+              <ng-template valError="required"
+                >Website URL is required.</ng-template
+              >
+              <ng-template valError="url">Invalid Website URL.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Source</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Google"
+              formControlName="source"
+            />
+            <val-errors controlName="source">
+              <ng-template valError="required">Source is required.</ng-template>
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <label for="">Order</label>
+            <input
+              type="text"
+              class="form-control"
+              size="4"
+              placeholder="10"
+              formControlName="order"
+            />
+            <val-errors controlName="order">
+              <ng-template valError="required">Order is required.</ng-template>
+              <ng-template valError="number"
+                >Order should be a number.</ng-template
+              >
+            </val-errors>
+          </div>
+          <div class="form-group">
+            <button class="c-btn">
+              {{ editMode ? "Update Lead" : "Add Lead" }}
+            </button>
+            <p class="msg">{{ msg }}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

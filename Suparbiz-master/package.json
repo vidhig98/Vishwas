@@ -1,0 +1,38 @@
+{
+    "name": "suparbiz",
+    "version": "1.0.0",
+    "description": "B2B ToDo App",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sARfY7/Super.git"
+    },
+    "author": "Sarfaraz Ahmed",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sARfY7/Super/issues"
+    },
+    "homepage": "https://github.com/sARfY7/Super#readme",
+    "dependencies": {
+        "@hapi/joi": "^15.1.0",
+        "accesscontrol": "^2.2.1",
+        "aws-sdk": "^2.563.0",
+        "bcrypt": "^3.0.6",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.15",
+        "moment": "^2.24.0",
+        "mongoose": "^5.5.12",
+        "uuid": "^3.3.3",
+        "validator": "^11.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.1"
+    }
+}

@@ -1,0 +1,77 @@
+<div class="row" *ngIf="visible">
+  <div class="col-3 col-sm-2 col-lg-1 comment__by">
+    <img
+      class="img-fluid"
+      src="https://ui-avatars.com/api/?name={{ comment.posted_by.firstName }}+{{
+        comment.posted_by.lastName
+      }}&rounded=true&"
+      alt="{{ comment.posted_by.firstName }} {{ comment.posted_by.lastName }}"
+    />
+  </div>
+  <div class="col-9 col-sm-6 col-lg-9 pl-0">
+    <div
+      class="row"
+      [ngClass]="{
+        'comment--editable': editable,
+        'ml-2': editable
+      }"
+    >
+      <div
+        class="col-12 mb-2 comment__text"
+        [contentEditable]="editable"
+        #commentText
+      >
+        {{ comment.text }}
+      </div>
+      <div class="col-12 comment__time">
+        {{ comment.updatedAt | date: "shortTime" }}
+      </div>
+      <div class="col-12 d-flex d-sm-none pl-0 comment__actions">
+        <div
+          class="p-2 comment__action"
+          (click)="toggleEditableMode()"
+          *ngIf="owner"
+        >
+          <i
+            class="icon ion-md-checkmark"
+            title="Done Editing"
+            *ngIf="editable; else done"
+          ></i>
+          <ng-template #done
+            ><i class="icon ion-md-create" title="Edit Comment"></i
+          ></ng-template>
+        </div>
+        <div
+          class="p-2 comment__action"
+          (click)="deleteComment()"
+          *ngIf="!editable && owner"
+        >
+          <i class="icon ion-md-trash" title="Delete Comment"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-4 col-lg-2 d-none d-sm-flex pl-0 comment__actions">
+    <div
+      class="px-3 pb-3 comment__action"
+      (click)="toggleEditableMode()"
+      *ngIf="owner"
+    >
+      <i
+        class="icon ion-md-checkmark"
+        title="Done Editing"
+        *ngIf="editable; else done"
+      ></i>
+      <ng-template #done
+        ><i class="icon ion-md-create" title="Edit Comment"></i
+      ></ng-template>
+    </div>
+    <div
+      class="px-3 pb-3 comment__action"
+      (click)="deleteComment()"
+      *ngIf="!editable && owner"
+    >
+      <i class="icon ion-md-trash" title="Delete Comment"></i>
+    </div>
+  </div>
+</div>

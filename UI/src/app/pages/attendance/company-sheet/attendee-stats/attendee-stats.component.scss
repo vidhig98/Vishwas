@@ -1,0 +1,15 @@
+.attendee {
+  max-height: 100px;
+
+  // &__avatar {
+  //   // max-width: 64px;
+  // }
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__stats {
+    font-size: 14px;
+  }
+}
