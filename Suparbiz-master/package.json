@@ -20,7 +20,7 @@
     "dependencies": {
         "@hapi/joi": "^15.1.0",
         "accesscontrol": "^2.2.1",
-        "aws-sdk": "^2.563.0",
+        "aws-sdk": "^2.814.0",
         "bcrypt": "^3.0.6",
         "cors": "^2.8.5",
         "dotenv": "^8.2.0",
