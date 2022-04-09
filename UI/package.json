@@ -27,7 +27,7 @@
     "ionicons": "^4.6.2",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-cookie-service": "^2.2.0",
     "ngx-custom-validators": "^8.0.0",
     "ngx-valdemort": "^2.0.0",
